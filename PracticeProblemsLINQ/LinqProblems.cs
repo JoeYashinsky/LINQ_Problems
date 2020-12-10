@@ -18,13 +18,9 @@ namespace PracticeProblemsLINQ
         {
             //code
             List<string> wordsContainingTh = new List<string>();   /*{ "the", "bike", "this", "it", "tenth", "mathematics" };*/
-            var wordsContainingTh = words.Where(w => w.Contains("th")).ToList();
+            wordsContainingTh = words.Where(w => w.Contains("th")).ToList();
            
             //return
-            foreach(var word in wordsContainingTh)
-            {
-                Console.WriteLine(word);
-            }
             return wordsContainingTh;
 
         }
@@ -55,9 +51,10 @@ namespace PracticeProblemsLINQ
         public static Customer RunProblem3(List<Customer> customers)
         {
             //code
+            var customerMike = customers.Find(c => c.FirstName == "Mike");
 
             //return
-
+            return customerMike;
         }
         #endregion
 
@@ -68,9 +65,12 @@ namespace PracticeProblemsLINQ
         public static Customer RunProblem4(List<Customer> customers)
         {
             //code
+            var custWithId3 = customers.Find(c => c.Id == 3);
+            custWithId3.FirstName = "Joe";
+            custWithId3.LastName = "Tinker";
 
             //return
-
+            return custWithId3;
         }
         #endregion
 
