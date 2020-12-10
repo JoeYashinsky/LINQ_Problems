@@ -17,11 +17,11 @@ namespace PracticeProblemsLINQ
         public static List<string> RunProblem1(List<string> words)
         {
             //code
-            List<string> words = new List<string>() { "the", "bike", "this", "it", "tenth", "mathematics" };
-            wordsContainingTh = words.Where(w => w.Contains("th"));
+            List<string> wordsContainingTh = new List<string>();   /*{ "the", "bike", "this", "it", "tenth", "mathematics" };*/
+            var wordsContainingTh = words.Where(w => w.Contains("th")).ToList();
            
             //return
-            foreach(string word in wordsContainingTh)
+            foreach(var word in wordsContainingTh)
             {
                 Console.WriteLine(word);
             }
@@ -36,8 +36,15 @@ namespace PracticeProblemsLINQ
         public static List<string> RunProblem2(List<string> names)
         {
             //code
+            List<string> listNoDuplicates = new List<string>();
+            listNoDuplicates = names.Distinct().ToList();
 
             //return
+            foreach (var name in listNoDuplicates)
+            {
+                Console.WriteLine(name);
+            }
+            return listNoDuplicates;
 
         }
         #endregion
