@@ -83,9 +83,17 @@ namespace PracticeProblemsLINQ
         public static double RunProblem5(List<string> classGrades)
         {
             //code
-
+            List<string> classAvg = new List<string>();
+            foreach (string grade in classGrades)
+            {
+                List<int> intGrades = grade.Split(',').Select(g => Convert.ToInt32(g)).ToList();
+                intGrades.Remove(intGrades.Min());
+                //now need to add up the (remaining) grades, then average those grades (w/o the removed min grade)
+                classAvg.Add(intGrades);
+                intGrades.Average();
+            }
             //return
-
+            return classAvg.Average();
         }
         #endregion
 
@@ -96,6 +104,7 @@ namespace PracticeProblemsLINQ
         public static string RunBonusProblem1(string word)
         {
             //code
+
 
             //return
 
