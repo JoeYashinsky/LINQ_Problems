@@ -32,14 +32,7 @@ namespace PracticeProblemsLINQ
         public static List<string> RunProblem2(List<string> names)
         {
             //code
-            List<string> listNoDuplicates = new List<string>();
-            listNoDuplicates = names.Distinct().ToList();
-
-            //return
-            foreach (var name in listNoDuplicates)
-            {
-                Console.WriteLine(name);
-            }
+            var listNoDuplicates = names.Distinct().ToList();
             return listNoDuplicates;
 
         }
