@@ -102,10 +102,16 @@ namespace PracticeProblemsLINQ
         public static string RunBonusProblem1(string word)
         {
             //code
-
-
+            List<char> terrill = word.OrderBy(w => w).ToList();
+            List<char> uniqueLetters = word.Distinct().OrderBy(u => u).ToList();
+            string alphaOrderedString = null;
+            foreach(char character in uniqueLetters)
+            {
+                int letterCounter = terrill.Where(c => c == character).Count();
+                alphaOrderedString += character.ToString().ToUpper() + letterCounter;
+            }
             //return
-
+            return alphaOrderedString;
         }
         #endregion
     }
