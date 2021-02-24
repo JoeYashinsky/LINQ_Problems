@@ -58,7 +58,7 @@ namespace PracticeProblemsLINQ
         public static Customer RunProblem4(List<Customer> customers)
         {
             //code
-            var custWithId3 = customers.Find(c => c.Id == 3);
+            Customer custWithId3 = customers.First(c => c.Id == 3);
             custWithId3.FirstName = "Joe";
             custWithId3.LastName = "Tinker";
 
