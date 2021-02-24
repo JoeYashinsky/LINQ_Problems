@@ -76,17 +76,22 @@ namespace PracticeProblemsLINQ
         public static double RunProblem5(List<string> classGrades)
         {
             //code
-            List<string> classAvg = new List<string>();
-            foreach (string grade in classGrades)
+            List<string> allGrades = new List<string>() { "80, 100, 92, 89, 65",
+                                                          "93, 81, 78, 84, 69",
+                                                          "73, 88, 83, 99, 64",
+                                                          "98, 100, 66, 74, 55" };
+
+            double scoreTotal = 0;
+            foreach (string g in allGrades)
             {
-                List<int> intGrades = grade.Split(',').Select(g => Convert.ToInt32(g)).ToList();
-                intGrades.Remove(intGrades.Min());
-                //now need to add up the (remaining) grades, then average those grades (w/o the removed min grade)
-                classAvg.Add(intGrades);
-                intGrades.Average();
+                string[] grades = g.Split(',');
+                var integerGrades = grades.Select(i => Int32.Parse(i)).ToList();
+                integerGrades.Remove(integerGrades.Min());
+                scoreTotal += integerGrades.Average();
             }
-            //return
-            return classAvg.Average();
+            var avgOfAvgs = scoreTotal / allGrades.Count;
+            return avgOfAvgs;
+            
         }
         #endregion
 
