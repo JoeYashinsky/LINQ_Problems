@@ -44,7 +44,7 @@ namespace PracticeProblemsLINQ
         public static Customer RunProblem3(List<Customer> customers)
         {
             //code
-            var customerMike = customers.Find(c => c.FirstName == "Mike");
+            Customer customerMike = customers.Single(c => c.FirstName == "Mike");  //(c => c.FirstName.Equals("Mike"));
 
             //return
             return customerMike;
